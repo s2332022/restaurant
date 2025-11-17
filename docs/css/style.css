@@ -1,0 +1,67 @@
+/* Basic reset & variables */
+:root{
+  --wine:#8b1d22;
+  --cream:#fff7f5;
+  --muted:#666;
+  --max-width:1000px;
+  --radius:8px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Noto Sans JP', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+  color:var(--muted);
+  background:linear-gradient(180deg,var(--cream),#fff);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.site-header{background:rgba(255,255,255,0.9);border-bottom:1px solid #eee}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.logo img{height:48px}
+.main-nav a{margin-left:1rem;color:var(--wine);text-decoration:none;font-weight:600}
+.hero{position:relative;text-align:center;padding:2rem 0;background:linear-gradient(180deg,rgba(139,29,34,0.06),transparent)}
+.hero img{opacity:0.95}
+.hero-text{margin-top:0.5rem}
+.hero h1{font-family:'Playfair Display', serif;color:var(--wine);font-size:2.2rem;margin:0}
+.hero p{margin:0.4rem 0}
+.btn{display:inline-block;background:var(--wine);color:#fff;padding:0.6rem 1rem;border-radius:6px;text-decoration:none}
+.btn.secondary{background:#eee;color:var(--wine)}
+.intro{padding:2rem 1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.card{background:#fff;border-radius:var(--radius);padding:1rem;box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+.courses{background:#fff;margin-top:1rem;padding:1.5rem;border-radius:var(--radius)}
+.site-footer{border-top:1px solid #eee;padding:1rem 0;margin-top:2rem}
+.breadcrumbs{font-size:0.9rem;color:#888}
+.menu-list dt{font-weight:700;margin-top:0.8rem}
+.contact-form{display:grid;gap:0.6rem;max-width:420px}
+.contact-form label{display:flex;flex-direction:column;font-size:0.9rem}
+.contact-form input,.contact-form select{padding:0.5rem;border:1px solid #ddd;border-radius:6px}
+@media(min-width:800px){
+  .hero{display:flex;align-items:center;gap:2rem}
+  .hero img{flex:0 0 260px}
+  .hero-text{flex:1;text-align:left}
+  .site-header .container{padding:1rem 2rem}
+}
+
+/* Gallery and image utilities */
+.gallery .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.8rem;align-items:start}
+.grid.small{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
+/* Use aspect-ratio so images keep consistent visible size and crop nicely */
+.gallery img,.grid img,.thumb img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block}
+.thumb{max-width:220px;margin:0.5rem 0}
+.hero .hero-img{width:100%;max-width:900px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block}
+
+/* Card and course images */
+.card img,.course img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block}
+
+/* Improve accessibility and layout on very small screens */
+@media(max-width:420px){
+  .hero .hero-img{aspect-ratio:4/3}
+  .gallery img,.grid img,.thumb img{aspect-ratio:4/3}
+}
+
+@media(min-width:800px){
+  /* Slightly larger hero on wide screens */
+  .hero .hero-img{aspect-ratio:16/7}
+}
