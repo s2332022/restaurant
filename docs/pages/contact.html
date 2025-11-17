@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>アクセス / 予約 - CIT</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/logo.svg" alt="CIT ロゴ"></a>
+      <nav class="main-nav">
+        <a href="../index.html">ホーム</a>
+        <a href="menu.html">メニュー</a>
+        <a href="about.html">お店について</a>
+        <a href="contact.html">アクセス/予約</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="breadcrumbs"><a href="../index.html">ホーム</a> / アクセス・予約</p>
+    <h1>アクセス / 予約</h1>
+
+    <section>
+      <h2>住所・電話</h2>
+      <p>〒999-999 奈良氏之市 都田沼１２３</p>
+      <p>都田沼駅より徒歩2分</p>
+      <p>電話: 000-1234-5678</p>
+    </section>
+
+    <section>
+      <h2>ご予約</h2>
+      <p>ご予約はお電話にて承っております。8名以上の貸切やサプライズは事前にご相談ください。ケーキ持ち込み可。</p>
+      <form class="contact-form" onsubmit="alert('このデモフォームは送信されません。電話で予約してください。'); return false;">
+        <label>お名前<input type="text" name="name" required></label>
+        <label>連絡先<input type="tel" name="tel"></label>
+        <label>人数<select name="people"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+        <button class="btn" type="submit">送信（デモ）</button>
+      </form>
+    </section>
+
+    <p><a href="javascript:history.back()" class="btn secondary">戻る</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© CIT</p>
+    </div>
+  </footer>
+</body>
+</html>
