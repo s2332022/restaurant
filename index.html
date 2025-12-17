@@ -4,68 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CIT（シーアイティ） - イタリアン</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header bg-white shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light container">
-      <a class="navbar-brand" href="index.html"><img src="images/logo.svg" alt="CIT ロゴ" height="40"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/menu.html">メニュー</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/about.html">お店について</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/contact.html">アクセス/予約</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="CIT ロゴ" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">ホーム</a>
+        <a href="pages/menu.html">メニュー</a>
+        <a href="pages/about.html">お店について</a>
+        <a href="pages/contact.html">アクセス/予約</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero py-4">
-      <div class="container d-flex flex-column flex-lg-row align-items-center gap-4">
-        <img class="hero-img img-fluid rounded" src="素材/ワインと人気メニュー.jpg" alt="ワインとおすすめメニュー" loading="lazy" style="max-width:520px;">
-        <div class="hero-text">
-          <h1 class="display-6">CIT（シーアイティ）</h1>
-          <p class="lead">普段使いの気取らない贅沢 — ワインとチーズ、国産牛肉をお楽しみください。</p>
-          <p class="cta"><a href="pages/menu.html" class="btn btn-primary">メニューを見る</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GIF アニメーション（ブラウザで動的生成） -->
-    <section class="container py-4">
-      <h2>アニメーション</h2>
-      <p>以下はブラウザ上で GIF を生成して表示するサンプルです（gif.js を使用）。</p>
-      <div class="mb-3">
-        <canvas id="gifCanvas" width="300" height="180" style="border:1px solid #eee;display:none"></canvas>
-        <img id="generated-gif" alt="生成されたGIF" class="img-fluid rounded" />
-      </div>
-      <button id="makeGif" class="btn btn-outline-secondary">GIFを生成して表示</button>
-    </section>
-
-    <!-- 動画と音声のセクション -->
-    <section class="container py-4">
-      <h2>動画と音声</h2>
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <video controls class="w-100 rounded" poster="素材/ワインと人気メニュー.jpg">
-            <source src="素材/ワイン.mp4" type="video/mp4">
-            このブラウザはビデオの再生に対応していません。
-          </video>
-        </div>
-        <div class="col-md-6 mb-3">
-          <p>以下はブラウザで生成した短い音声（サンプル）。再生ボタンを押すと音が鳴ります。</p>
-          <audio id="generated-audio" controls></audio>
-          <div class="mt-2">
-            <button id="makeAudio" class="btn btn-outline-primary">音声を生成して再生</button>
-          </div>
-        </div>
+    <section class="hero">
+  <!-- Use photo from 素材 folder. If serving with a static server, see README for instructions -->
+  <img class="hero-img" src="素材/ワインと人気メニュー.jpg" alt="ワインとおすすめメニュー" loading="lazy" />
+      <div class="hero-text container">
+        <h1>CIT（シーアイティ）</h1>
+        <p>普段使いの気取らない贅沢 — ワインとチーズ、国産牛肉をお楽しみください。</p>
+        <p class="cta"><a href="pages/menu.html" class="btn">メニューを見る</a></p>
       </div>
     </section>
 
@@ -135,56 +99,5 @@
       <p>© CIT</p>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-" crossorigin="anonymous"></script>
-  <!-- gif.js を使ってブラウザで GIF を生成 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
-  <script>
-    // GIF を生成するサンプル
-    document.getElementById('makeGif').addEventListener('click', function(){
-      const canvas = document.getElementById('gifCanvas');
-      const ctx = canvas.getContext('2d');
-      const gif = new GIF({workers:2, quality:10, workerScript: 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js'});
-      // 描画フレームを作る (シンプルな湯気アニメ)
-      for(let i=0;i<20;i++){
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        // plate
-        ctx.fillStyle = '#f7f5f3';
-        ctx.beginPath(); ctx.ellipse(150,120,100,30,0,0,Math.PI*2); ctx.fill();
-        // steam lines
-        ctx.strokeStyle = '#ddd'; ctx.lineWidth=3; ctx.beginPath();
-        ctx.moveTo(100 + (i%5),80 - (i%6)); ctx.quadraticCurveTo(120,60,110,40); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(180 - (i%6),85 - (i%4)); ctx.quadraticCurveTo(200,65,190,45); ctx.stroke();
-        gif.addFrame(ctx,{copy:true,delay:80});
-      }
-      gif.on('finished', function(blob){
-        const img = document.getElementById('generated-gif');
-        img.src = URL.createObjectURL(blob);
-      });
-      gif.render();
-    });
-
-    // 簡易音声生成（WebAudio + MediaRecorder）
-    document.getElementById('makeAudio').addEventListener('click', async function(){
-      const audioEl = document.getElementById('generated-audio');
-      try{
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const dest = ctx.createMediaStreamDestination();
-        const osc = ctx.createOscillator(); osc.type = 'sine'; osc.frequency.value = 440;
-        const gain = ctx.createGain(); gain.gain.value = 0.2;
-        osc.connect(gain); gain.connect(dest);
-        const recorder = new MediaRecorder(dest.stream);
-        const chunks = [];
-        recorder.ondataavailable = e=>chunks.push(e.data);
-        recorder.onstop = ()=>{
-          const blob = new Blob(chunks,{type:'audio/webm'});
-          audioEl.src = URL.createObjectURL(blob);
-          audioEl.play();
-        };
-        recorder.start(); osc.start();
-        setTimeout(()=>{ osc.stop(); recorder.stop(); ctx.close(); }, 1200);
-      }catch(e){ alert('音声生成に失敗しました: '+e.message); }
-    });
-  </script>
 </body>
 </html>
