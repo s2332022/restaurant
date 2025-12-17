@@ -16,6 +16,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.navbar-brand img{height:40px}
 .site-header{background:rgba(255,255,255,0.9);border-bottom:1px solid #eee}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
 .logo img{height:48px}
